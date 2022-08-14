@@ -86,8 +86,13 @@ public class OakBridgeSchool {
         int topScorer = totalMarks[0];
         if (len == 1) {
             return totalMarks[0];
-        } else {
-            return (findTopScore(totalMarks, len - 1) + totalMarks[len - 1]);
+        }
+        if(findTopScore(totalMarks,len -1) > totalMarks[len -1]){
+           return(findTopScore(totalMarks,len-1));
+        }
+
+        else {
+            return (totalMarks[len - 1]);
         }
     }
 
@@ -107,10 +112,10 @@ public class OakBridgeSchool {
         // Call the appropriate methods and display the output
         int[] totalMarks = oakBridgeSchool.calculateTotalMarks(math,science,english);
         for (int i = 0; i < totalMarks.length; i++) {
-            System.out.print(totalMarks[i] + " ");
-            System.out.println();
+            System.out.print(totalMarks[i] + ", ");
+           
         }
-
+        System.out.println();
         int topScorer = oakBridgeSchool.findTopScore(totalMarks, totalMarks.length);
         System.out.println("topScorer = " + topScorer);
 
